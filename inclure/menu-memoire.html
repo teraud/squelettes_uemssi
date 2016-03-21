@@ -1,0 +1,33 @@
+<INCLURE{fond=inclure/menu-haut} />
+
+[(#MODELE{nuage}{id=2})]
+	
+<ul class="nav nav-list menu-memoires">
+	<BOUCLE_menu_memoires(RUBRIQUES){id_parent=8}{par num titre}{0,1}{doublons}>
+	<li class="nav-header">
+		[(#TITRE|supprimer_numero)]
+    </li>
+	<BOUCLE_sous_rubriques(RUBRIQUES){id_parent}{par num titre}{inverse}{doublons}>
+	<BOUCLE_test_articles(ARTICLES){id_rubrique}{0,1}>
+	<li[ (#_sous_rubriques:ID_RUBRIQUE|=={#ENV{id_rubrique}}|?{'class="on"','class="off"'})]>
+		<a href="#URL_ARTICLE">[(#_sous_rubriques:TITRE|supprimer_numero)]</a>
+	</li>
+	</BOUCLE_test_articles>
+	</B_test_articles>
+	<li[ (#ID_RUBRIQUE|=={#ENV{id_rubrique}}|?{'class="on"','class="off"'})]>
+		<a href="#URL_RUBRIQUE"[(#COMPTEUR_BOUCLE|=={1}|oui) class="first"]>[(#TITRE|supprimer_numero)]</a>
+		[(#EXPOSE|=={on}|oui)<INCLURE{fond=inclure/sous-menu-memoire}{id_rubrique}{rub=#ENV{id_rubrique}}{doublons}>]
+	</li>
+    <//B_test_articles>
+	</BOUCLE_sous_rubriques>
+	</BOUCLE_menu_memoires>
+
+	<BOUCLE_multimedia(GROUPES_MOTS){id_groupe=1}>
+	<li class="nav-header">
+		<span id="multimedia"[ class="(#EXPOSE)"]>Multimedia</span>
+    </li>
+	<BOUCLE_mots(MOTS){id_groupe}>
+    <li[ class="(#EXPOSE)"]><a href="#URL_MOT"[(#COMPTEUR_BOUCLE|=={1}|oui) class="first"]>[(#TITRE|supprimer_numero)]</a></li>
+	</BOUCLE_mots>
+	</BOUCLE_multimedia>
+</ul>

@@ -1,0 +1,13 @@
+<section>
+	<header class="cartouche hide">
+		<h1>#NOM_SITE_SPIP</h1>
+	</header>
+
+	<div class="main">
+		<BOUCLE_art(ARTICLES){type_mot=squelette_habillage}{titre_mot=article_une}{!par date}{0,1}>
+		<INCLURE{fond=inclure/article-hero,id_article,env,ajax} />
+		</BOUCLE_art>
+
+	</div>
+
+</section>

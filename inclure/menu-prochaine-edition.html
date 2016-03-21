@@ -1,0 +1,5 @@
+<INCLURE{fond=inclure/menu-haut} />
+
+<BOUCLE_menu_prochaine_edition(MENUS?){identifiant=prochaine_edition}{si #PLUGIN{menus}}>
+#INCLURE{fond=inclure/menu, env, identifiant=prochaine_edition}
+</BOUCLE_menu_prochaine_edition>

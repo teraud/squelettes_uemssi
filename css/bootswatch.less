@@ -1,0 +1,36 @@
+.navbar-inverse {
+    margin-left: 3 * (@gridColumnWidth + @gridGutterWidth);
+    @media (min-width: 1200px) {
+        margin-left: 3 * (@gridColumnWidth1200 + @gridGutterWidth1200);
+    }
+    @media (min-width: 768px) and (max-width: 979px) {
+        margin-left: 3 * (@gridColumnWidth768 + @gridGutterWidth768);
+    }
+    @media (max-width: 767px) {
+        margin-left: 0;
+    }
+    .navbar-inner {
+        background-image: none;
+        border: none;
+        border-radius: 0;
+    }
+    .nav {
+        & > li > a {
+            padding-left: 30px;
+            padding-right: 30px;
+            font-size: 1.286em;
+            text-shadow: none;
+        }
+        .active > a {
+            background-color: transparent;
+            background-image: none;
+            box-shadow: none;
+            text-shadow: none;
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                box-shadow: none;
+            }
+        }
+    } 
+}

@@ -1,0 +1,16 @@
+<BOUCLE_contexte(RUBRIQUES){id_rubrique}>
+<B_rubriques>
+<ul>
+<BOUCLE_rubriques(RUBRIQUES){id_parent}{doublons}>
+	<BOUCLE_test_branche(RUBRIQUES){branche}{id_rubrique=#ENV{rub}}> </BOUCLE_test_branche>
+	#SET{branche,on}</B_test_branche>#SET{branche,off}<//B_test_branche>
+	<li[ (#ID_RUBRIQUE|=={#ENV{rub}}|?{'class="on"','class="off"'})]>
+		<a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>
+		[(#GET{branche}|=={on}|oui)
+		<INCLURE{fond=inclure/sous-menu-memoire}{id_rubrique}{rub=#ENV{rub}}{doublons}>
+		]
+	</li>
+</BOUCLE_rubriques>
+</ul>
+</B_rubriques>
+</BOUCLE_contexte>

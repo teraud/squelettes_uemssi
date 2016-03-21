@@ -1,0 +1,41 @@
+<BOUCLE_aside(ARTICLES){id_article}>
+
+<BOUCLE_test_nb_articles(ARTICLES){id_rubrique}{1,1}>
+</BOUCLE_test_nb_articles>
+[(#REM) Articles dans la meme rubrique ]
+<B_articles_rubrique>
+<div class="liste articles">
+	<h2 class="h2"><a href="#URL_RUBRIQUE"><:meme_rubrique:></a></h2>
+	<ul class="liste-items">
+		<BOUCLE_articles_rubrique(ARTICLES){id_rubrique} {par date}{inverse} {0,10}>
+		<li class="item"><a href="#URL_ARTICLE"[ class="(#EXPOSE)"]>#TITRE</a></li>
+		</BOUCLE_articles_rubrique>
+	</ul>
+</div>
+</B_articles_rubrique>
+</B_test_nb_articles>
+
+[(#REM) Menu de navigation mots-cles ]
+<B_mots>
+<div class="liste mots">
+    <h2 class="h2"><:mots_clefs:></h2>
+    <ul class="liste-items">
+        <BOUCLE_mots(MOTS) {id_article} {par titre}>
+        <li class="item"><a href="#URL_MOT" rel="tag">#TITRE</a></li>
+        </BOUCLE_mots>
+    </ul>
+</div>
+</B_mots>
+
+<B_documents_joints>
+	<div class="liste documents documents_joints">
+	<h2 class="h2">Documents à télécharger</h2>
+	<ul class="liste-items">
+		<BOUCLE_documents_joints(DOCUMENTS) {id_article} {extension !IN gif,jpg,png} {vu=non}{par num titre, date}{doublons}>
+		<li class="item">#INCLURE{fond=inclure/resume/document,id_document}</li>
+		</BOUCLE_documents_joints>
+	</ul>
+	</div>
+</B_documents_joints>
+
+</BOUCLE_aside>

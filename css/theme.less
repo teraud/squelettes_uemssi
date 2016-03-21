@@ -1,0 +1,66 @@
+@import "css/variables.less";
+@import "css/spip.variables.less";
+@import "css/mixins.less";
+
+@couleurFondMemoire: #97BE0D;
+@couleurMemoire: #648000;
+
+.secteur-8 {
+    a,
+    a:hover,
+    a:focus {
+        color: @couleurMemoire;
+    }
+    .navbar-inverse .navbar-inner {
+        background-color: @couleurFondMemoire;
+        background-image: none;
+    }
+}
+
+.entree-prochaine-edition {
+    background-color: @linkColor;
+}
+.entree-memoire {
+    background-color: @couleurFondMemoire;   
+}
+
+.extra {
+    margin-top: -60px;
+    .formulaire_recherche {
+        padding-right: 0;
+        input.text {
+            width: 60%;
+        }
+    }
+    .c-quoi {
+        margin-bottom: 30px;
+        a:hover,
+        a:focus {
+            background-color: transparent;
+        }
+    }
+    .nuage {
+        margin-bottom: 20px;
+    }
+}
+
+.menu-prochaine-edition {
+    li {
+        clear:both;
+        padding:@emVertMargin / 2 0;
+        border-top: 1px solid (4*(@bodyBackground/5)+@gray/5);
+        &:last-child {
+            border-bottom: 1px solid (4*(@bodyBackground/5)+@gray/5);
+        }
+    }
+}
+.menu-memoires ul {
+    margin-left: 30px;
+}
+
+.header {
+    margin-top: 40px;
+}
+.footer {
+    border-top: none;
+}

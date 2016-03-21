@@ -1,0 +1,25 @@
+@import "bootstrap/css/layouts.less";
+@import "css/layoutgala/8";
+@import "css/layoutgala/27";
+
+/* par defaut : 2 colonnes en largeurs fixes */
+#layoutgala8 > .core(7,2,3,@gridColumnWidth,@gridGutterWidth);
+
+@media (min-width: 1200px) {
+  #layoutgala8 > .core(7,2,3,@gridColumnWidth1200,@gridGutterWidth1200);
+}
+
+/* entre 768px et 979px : 2 colonnes en largeurs fixes, mais grille plus etroite*/
+@media (min-width: 768px) and (max-width: 979px) {
+  #layoutgala8 > .core(7,2,3,@gridColumnWidth768,@gridGutterWidth768);
+}
+/* largeur < 767px : content en pleine largeur, aside et extra en 2 colonnes en dessous */
+@media (max-width: 767px) {
+  #layoutgala27 > .core(auto,48%,48%,@gridColumnWidth768,@gridGutterWidth768);
+}
+
+/* largeur < 450px : on garde le layout de dessus, mais on verticalise tout (content puis aside puis extra) */
+@media (max-width: 450px) {
+  div#aside {float:none;width:100%;}
+  div#extra {float:none;width:100%;}
+}

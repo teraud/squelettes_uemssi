@@ -1,0 +1,23 @@
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav nav-pills pull-right">
+                [(#PLUGIN{inscriptions}|oui)<li><a href="#URL_PAGE{inscription}">Inscription</a></li>]
+                <li class="identification">
+                    [(#SESSION{id_auteur}|non)<a href="[(#URL_PAGE{login}|parametre_url{url,#SELF})]">S'identifier</a>]
+                    [(#SESSION{id_auteur}|oui)<a href="#URL_LOGOUT">#SESSION{nom} - Se déconnecter</a>]	
+                </li>
+                <li>
+                    <a href="[(#URL_ARTICLE{96})]"
+                        rel="nofollow" target="_blank"
+                        onclick="if (jQuery.modalbox) {jQuery.modalbox('[(#URL_ARTICLE{96}|parametre_url{var_zajax,content})]');return false;}" >Mentions légales</a>
+                </li>
+                <li>
+                    <a href="[(#URL_ARTICLE{95})]" class="dernier" 
+                        rel="nofollow" target="_blank"
+                        onclick="if (jQuery.modalbox) {jQuery.modalbox('[(#URL_ARTICLE{95}|parametre_url{var_zajax,content})]');return false;}" >Contact</a>
+                </li>
+            </ul>	
+        </div>
+    </div>
+</div>
